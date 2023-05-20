@@ -1,14 +1,30 @@
-package com.br.alura.modelo;
+package com.br.alura.forum.curso;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+
+@Entity
+@Table(name="cursos")
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
 public class Curso {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String nome;
 	private String categoria;
-
-	public Curso(String nome, String categoria) {
-		this.nome = nome;
-		this.categoria = categoria;
+	
+	public Curso(DadosCadastroCurso dados) {
+		this.nome = dados.nome();
+		this.categoria = dados.categoria();
 	}
 	
 	@Override
@@ -34,30 +50,6 @@ public class Curso {
 		} else if (!id.equals(other.id))
 			return false;
 		return true;
-	}
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public String getNome() {
-		return nome;
-	}
-
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
-
-	public String getCategoria() {
-		return categoria;
-	}
-
-	public void setCategoria(String categoria) {
-		this.categoria = categoria;
 	}
 
 }

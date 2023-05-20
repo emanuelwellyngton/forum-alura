@@ -1,0 +1,9 @@
+CREATE TABLE cursos (
+
+  id INT NOT NULL AUTO_INCREMENT,
+  nome VARCHAR(255) NOT NULL UNIQUE,
+  categoria VARCHAR(50) NOT NULL,
+  
+  PRIMARY KEY (id)
+  
+  );
