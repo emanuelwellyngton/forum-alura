@@ -52,8 +52,8 @@ public class TopicoController {
 	}
 	
 	@GetMapping
-	public ResponseEntity<Page<DadosListagemTopico>> listar(Pageable paginacao) {
-		Page<DadosListagemTopico> paginas = repositoryTopico.findAll(paginacao).map(DadosListagemTopico::new);
+	public ResponseEntity<Page<Topico>> listar(Pageable paginacao) {
+		Page<Topico> paginas = repositoryTopico.findAll(paginacao);
 		return ResponseEntity.ok(paginas);
 	}
 	
